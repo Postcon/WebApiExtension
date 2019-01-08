@@ -9,6 +9,7 @@ Feature: client aware context
       <?php
 
       use Behat\WebApiExtension\Context\ApiClientAwareContext;
+      use PHPUnit\Framework\Assert as Assertions;
       use GuzzleHttp\ClientInterface;
 
       class FeatureContext implements ApiClientAwareContext
@@ -24,7 +25,7 @@ Feature: client aware context
            * @Then /^the client should be set$/
            */
           public function theClientShouldBeSet() {
-              PHPUnit_Framework_Assert::assertInstanceOf('GuzzleHttp\Client', $this->client);
+              Assertions::assertInstanceOf('GuzzleHttp\Client', $this->client);
           }
       }
       """
